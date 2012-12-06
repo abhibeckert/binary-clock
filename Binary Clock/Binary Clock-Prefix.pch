@@ -1,0 +1,17 @@
+//
+// Prefix header for all source files of the 'Binary Clock' target in the 'Binary Clock' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
+#endif
+
+#ifdef __OBJC__
+  #import <UIKit/UIKit.h>
+  #import <Foundation/Foundation.h>
+#endif
+
+// the number of dots to display in the clock
+#define BC_CLOCK_DISPLAY_LENGTH 20

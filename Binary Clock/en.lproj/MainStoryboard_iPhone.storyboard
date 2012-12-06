@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="5">
+            <objects>
+                <viewController id="2" customClass="BCViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="13E-jX-eIk" customClass="BCClockView">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="13E-jX-eIk" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="hDL-wO-NAu"/>
+                            <constraint firstItem="13E-jX-eIk" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="lZ2-h8-dzZ"/>
+                            <constraint firstItem="13E-jX-eIk" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="ovI-DY-hRN"/>
+                            <constraint firstItem="13E-jX-eIk" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="wnu-uR-S0E"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="clockView" destination="13E-jX-eIk" id="llf-9a-tVQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-32" y="187"/>
+        </scene>
+    </scenes>
+    <classes>
+        <class className="BCClockView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BCClockView.h"/>
+        </class>
+        <class className="BCViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BCViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="clockView" candidateClass="BCClockView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
