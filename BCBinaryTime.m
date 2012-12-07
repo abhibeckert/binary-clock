@@ -70,6 +70,8 @@
   
   // add "on" or "off" to values by checking if "now" is closer to "begining" or "end", then cut the begining/end times in half and repeat up to the desired length
   for (int i = 0; i < length; i++) {
+//    NSLog(@"from: %@ to %@ equals %@", [NSDateFormatter localizedStringFromDate:[NSDate dateWithTimeIntervalSince1970:beginning] dateStyle:kCFDateFormatterNoStyle timeStyle:kCFDateFormatterShortStyle], [NSDateFormatter localizedStringFromDate:[NSDate dateWithTimeIntervalSince1970:end] dateStyle:kCFDateFormatterNoStyle timeStyle:kCFDateFormatterShortStyle], (now - beginning) < (end - now) ? @"0" : @"1");
+    
     if ((now - beginning) < (end - now)) {
       [values addObject:off];
       end = (end - ((end - beginning) / 2));

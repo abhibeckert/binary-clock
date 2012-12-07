@@ -14,4 +14,7 @@
 #endif
 
 // the number of dots to display in the clock
-#define BC_CLOCK_DISPLAY_LENGTH 20
+#define BC_CLOCK_DISPLAY_LENGTH 8
+
+// the number of seconds between each display refresh
+#define BC_CLOCK_DISPLAY_UPDATE_TIME_INTERVAL 5.0

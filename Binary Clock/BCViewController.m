@@ -18,7 +18,7 @@
 {
   [super viewDidLoad];
 	
-  [NSTimer scheduledTimerWithTimeInterval:(1 / BC_CLOCK_DISPLAY_LENGTH) target:self selector:@selector(update:) userInfo:nil repeats:YES];
+  [NSTimer scheduledTimerWithTimeInterval:BC_CLOCK_DISPLAY_UPDATE_TIME_INTERVAL target:self selector:@selector(update:) userInfo:nil repeats:YES];
 }
 
 - (void)update:(NSTimer *)timer
