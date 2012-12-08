@@ -122,8 +122,8 @@
   CGFloat minX = 0;
   CGFloat maxX = self.frame.size.width;
 #elif TARGET_OS_MAC
-  CGFloat minX = (self.frame.size.width / count) / 2;
-  CGFloat maxX = self.frame.size.width - ((self.frame.size.width / count) / 2);
+  CGFloat minX = (self.frame.size.width / count) / 1.5;
+  CGFloat maxX = self.frame.size.width - ((self.frame.size.width / count) / 1.5);
 #endif
   CGFloat blockWidth = (maxX - minX) / count;
   CGFloat shadowOffset = blockWidth / 1.1;
