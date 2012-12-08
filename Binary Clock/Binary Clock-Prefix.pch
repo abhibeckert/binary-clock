@@ -12,6 +12,3 @@
   #import <UIKit/UIKit.h>
   #import <Foundation/Foundation.h>
 #endif
-
-// the number of dots to display in the clock
-#define BC_CLOCK_DISPLAY_LENGTH 8

@@ -7,6 +7,7 @@
 //
 
 #import "BCClockView.h"
+#import "BCClockGlowingSquareView.h"
 
 @implementation BCClockView
 
@@ -17,16 +18,42 @@
   self.backgroundColor = [UIColor blackColor];
   
   [self addObserver:self forKeyPath:@"length" options:0 context:NULL];
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(defaultsDidChange:) name:NSUserDefaultsDidChangeNotification object:nil];
   
-  self.length = BC_CLOCK_DISPLAY_LENGTH;
+  NSString *lengthStr = [[NSUserDefaults standardUserDefaults] stringForKey:@"BCClockBlockCount"];
+  if (!lengthStr || lengthStr.intValue == 0) {
+    lengthStr = @"8";
+  }
+  self.length = lengthStr.intValue;
   
-  [self updateSubviewOpacities:NO];
-  [NSTimer scheduledTimerWithTimeInterval:[[BCBinaryTime binaryTime] timeIntervalToNextChangeAtPosition:self.length] target:self selector:@selector(update:) userInfo:nil repeats:NO];
+  [self recreateSubviews];
+  [self setNeedsLayout];
+  
+  [self update:nil];
+}
+
+- (void)defaultsDidChange:(NSNotification *)notif
+{
+  NSString *lengthStr = [[NSUserDefaults standardUserDefaults] stringForKey:@"BCClockBlockCount"];
+  if (!lengthStr || lengthStr.intValue == 0) {
+    lengthStr = @"8";
+  }
+  NSInteger newLength = lengthStr.intValue;
+  if (newLength != self.length) {
+    self.length = newLength;
+    
+    [self recreateSubviews];
+    [self setNeedsLayout];
+    
+    [self update:nil];
+
+  }
 }
 
 - (void)update:(NSTimer *)timer
 {
-  [self updateSubviewOpacities:YES];
+  [self updateSubviewOpacities];
+  
   [NSTimer scheduledTimerWithTimeInterval:[[BCBinaryTime binaryTime] timeIntervalToNextChangeAtPosition:self.length] target:self selector:@selector(update:) userInfo:nil repeats:NO];
 }
 
@@ -34,8 +61,7 @@
 {
   if (object == self) {
     if ([keyPath isEqualToString:@"length"]) {
-      [self recreateSubviews];
-      [self setNeedsLayout];
+      
       return;
     }
   }
@@ -50,10 +76,8 @@
   }
   
   NSInteger length = self.length;
-  UIColor *blockFillColor = [UIColor colorWithRed:0.75 green:0.9 blue:1 alpha:1];
   for (int subviewIndex = 0; subviewIndex < length; subviewIndex++) {
-    UIView *subview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
-    subview.backgroundColor = blockFillColor;
+    BCClockGlowingSquareView *subview = [[BCClockGlowingSquareView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
     subview.alpha = 0;
     
     [self addSubview:subview];
@@ -63,30 +87,36 @@
 - (void)layoutSubviews
 {
   NSInteger count = self.subviews.count;
-
-  CGFloat minX = 0; // allow for stroke width on left/right
-  CGFloat maxX = self.frame.size.width; // allow for stroke width on left/right
-  CGFloat blockStrokeWidth = 1;
-  CGFloat blockWidth = ((maxX - minX) - (blockStrokeWidth * (count - 1))) / count;
+  
+  CGFloat minX = 0;
+  CGFloat maxX = self.frame.size.width;
+  CGFloat blockWidth = (maxX - minX) / count;
+  CGFloat shadowOffset = blockWidth / 1.1;
   
   CGFloat blockHeight = blockWidth;
   CGFloat blockY = (self.frame.size.height / 2) - (blockHeight / 2);
   
   int subviewIndex = 0;
   for (UIView *subview in self.subviews) {
-    subview.frame = CGRectMake(minX + (subviewIndex * (blockWidth + blockStrokeWidth)), blockY, blockWidth, blockHeight);
+    CGRect frame = CGRectMake(minX + (subviewIndex * blockWidth), blockY, blockWidth, blockHeight);
     
+    frame.origin.x = floorf(2.0f * (frame.origin.x - shadowOffset)) / 2.0f;
+    frame.origin.y = floorf(2.0f * (frame.origin.y - shadowOffset)) / 2.0f;
+    frame.size.width = ceilf(2.0f * (frame.size.width + shadowOffset * 2)) / 2.0f;
+    frame.size.height = ceilf(2.0f * (frame.size.height + shadowOffset * 2)) / 2.0f;
+    
+    subview.frame = frame;
     subviewIndex++;
   }
 }
 
-- (void)updateSubviewOpacities:(BOOL)slowAnimate
+- (void)updateSubviewOpacities
 {
   BCBinaryTime *time = [BCBinaryTime binaryTime];
   NSInteger count = self.subviews.count;
   NSArray *values = [time binaryValuesWithLength:count];
   
-  NSTimeInterval animationDuration = slowAnimate ? 10 : 1;
+  NSTimeInterval animationDuration = 5;
   NSTimeInterval maxAnimationDuration = [time timeIntervalToNextChangeAtPosition:count];
   if (animationDuration > maxAnimationDuration)
     animationDuration = maxAnimationDuration;

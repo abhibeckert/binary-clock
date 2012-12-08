@@ -13,7 +13,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  [[NSUserDefaults standardUserDefaults] registerDefaults:@{@"BCClockBlockCount": @"8"}];
+  [[NSUserDefaults standardUserDefaults] synchronize];
+  
   [[UIApplication sharedApplication] setStatusBarHidden:YES];
+  
   return YES;
 }
 

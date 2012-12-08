@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3871B0C11673538B005B94B2 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3871B0C01673538B005B94B2 /* Settings.bundle */; };
+		388367D81672C06900DEC17E /* BCClockGlowingSquareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 388367D71672C06900DEC17E /* BCClockGlowingSquareView.m */; };
 		38E464BC16714E2E00FB69D7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38E464BB16714E2E00FB69D7 /* UIKit.framework */; };
 		38E464BE16714E2E00FB69D7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38E464BD16714E2E00FB69D7 /* Foundation.framework */; };
 		38E464C016714E2E00FB69D7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38E464BF16714E2E00FB69D7 /* CoreGraphics.framework */; };
@@ -23,6 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3871B0C01673538B005B94B2 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		388367D61672C06900DEC17E /* BCClockGlowingSquareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCClockGlowingSquareView.h; sourceTree = "<group>"; };
+		388367D71672C06900DEC17E /* BCClockGlowingSquareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCClockGlowingSquareView.m; sourceTree = "<group>"; };
 		38E464B716714E2E00FB69D7 /* Binary Clock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Binary Clock.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		38E464BB16714E2E00FB69D7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		38E464BD16714E2E00FB69D7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -95,6 +100,8 @@
 				38E464E116714E9000FB69D7 /* BCClockView.h */,
 				38E464E216714E9000FB69D7 /* BCClockView.m */,
 				38E464E416714EA700FB69D7 /* BCBinaryTime.h */,
+				388367D61672C06900DEC17E /* BCClockGlowingSquareView.h */,
+				388367D71672C06900DEC17E /* BCClockGlowingSquareView.m */,
 				38E464E516714EA700FB69D7 /* BCBinaryTime.m */,
 				38E464C216714E2E00FB69D7 /* Supporting Files */,
 			);
@@ -108,6 +115,7 @@
 				38E464C416714E2E00FB69D7 /* InfoPlist.strings */,
 				38E464C716714E2E00FB69D7 /* main.m */,
 				38E464C916714E2E00FB69D7 /* Binary Clock-Prefix.pch */,
+				3871B0C01673538B005B94B2 /* Settings.bundle */,
 				38E464CD16714E2E00FB69D7 /* Default.png */,
 				38E464CF16714E2E00FB69D7 /* Default@2x.png */,
 				38E464D116714E2E00FB69D7 /* Default-568h@2x.png */,
@@ -173,6 +181,7 @@
 				38E464D216714E2E00FB69D7 /* Default-568h@2x.png in Resources */,
 				38E464D516714E2E00FB69D7 /* MainStoryboard_iPhone.storyboard in Resources */,
 				38E464D816714E2E00FB69D7 /* MainStoryboard_iPad.storyboard in Resources */,
+				3871B0C11673538B005B94B2 /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,6 +196,7 @@
 				38E464CC16714E2E00FB69D7 /* BCAppDelegate.m in Sources */,
 				38E464E316714E9000FB69D7 /* BCClockView.m in Sources */,
 				38E464E616714EA700FB69D7 /* BCBinaryTime.m in Sources */,
+				388367D81672C06900DEC17E /* BCClockGlowingSquareView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
