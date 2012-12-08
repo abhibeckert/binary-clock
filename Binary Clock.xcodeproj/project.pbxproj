@@ -473,6 +473,7 @@
 				GCC_PREFIX_HEADER = "Binary Clock/Binary Clock-Prefix.pch";
 				INFOPLIST_FILE = "Binary Clock/Binary Clock-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -484,6 +485,7 @@
 				GCC_PREFIX_HEADER = "Binary Clock/Binary Clock-Prefix.pch";
 				INFOPLIST_FILE = "Binary Clock/Binary Clock-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

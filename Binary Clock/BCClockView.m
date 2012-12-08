@@ -208,6 +208,9 @@
   }
 }
 
+#if TARGET_OS_IPHONE
+// no window to move around...
+#elif TARGET_OS_MAC
 - (void)mouseDown:(NSEvent *)event
 {
   NSWindow *window = [self window];
@@ -247,6 +250,6 @@
     [window setFrame:newFrame display:YES animate:NO];
   }
 }
-
+#endif
 
 @end
