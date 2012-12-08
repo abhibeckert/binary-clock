@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		384AF03A1673584D0059C898 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 384AF0391673584D0059C898 /* Cocoa.framework */; };
+		384AF0441673584D0059C898 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 384AF0421673584D0059C898 /* InfoPlist.strings */; };
+		384AF0461673584D0059C898 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 384AF0451673584D0059C898 /* main.m */; };
+		384AF04A1673584D0059C898 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 384AF0481673584D0059C898 /* Credits.rtf */; };
+		384AF04D1673584D0059C898 /* BCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 384AF04C1673584D0059C898 /* BCAppDelegate.m */; };
+		384AF0501673584D0059C898 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 384AF04E1673584D0059C898 /* MainMenu.xib */; };
+		384AF055167358E80059C898 /* BCBinaryTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E464E516714EA700FB69D7 /* BCBinaryTime.m */; };
+		384AF056167358EE0059C898 /* BCClockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E464E216714E9000FB69D7 /* BCClockView.m */; };
+		384AF057167358F00059C898 /* BCClockGlowingSquareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 388367D71672C06900DEC17E /* BCClockGlowingSquareView.m */; };
+		384AF063167361E80059C898 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 384AF062167361E80059C898 /* QuartzCore.framework */; };
+		384AF067167366160059C898 /* BCBorderlessWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 384AF066167366160059C898 /* BCBorderlessWindow.m */; };
 		3871B0C11673538B005B94B2 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3871B0C01673538B005B94B2 /* Settings.bundle */; };
 		388367D81672C06900DEC17E /* BCClockGlowingSquareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 388367D71672C06900DEC17E /* BCClockGlowingSquareView.m */; };
 		38E464BC16714E2E00FB69D7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38E464BB16714E2E00FB69D7 /* UIKit.framework */; };
@@ -25,6 +36,22 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		384AF0371673584C0059C898 /* Binary Clock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Binary Clock.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		384AF0391673584D0059C898 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		384AF03C1673584D0059C898 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		384AF03D1673584D0059C898 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		384AF03E1673584D0059C898 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		384AF0411673584D0059C898 /* Binary Clock Mac-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Binary Clock Mac-Info.plist"; sourceTree = "<group>"; };
+		384AF0431673584D0059C898 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		384AF0451673584D0059C898 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		384AF0471673584D0059C898 /* Binary Clock Mac-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Binary Clock Mac-Prefix.pch"; sourceTree = "<group>"; };
+		384AF0491673584D0059C898 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		384AF04B1673584D0059C898 /* BCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCAppDelegate.h; sourceTree = "<group>"; };
+		384AF04C1673584D0059C898 /* BCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCAppDelegate.m; sourceTree = "<group>"; };
+		384AF04F1673584D0059C898 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		384AF062167361E80059C898 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		384AF065167366160059C898 /* BCBorderlessWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCBorderlessWindow.h; sourceTree = "<group>"; };
+		384AF066167366160059C898 /* BCBorderlessWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCBorderlessWindow.m; sourceTree = "<group>"; };
 		3871B0C01673538B005B94B2 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		388367D61672C06900DEC17E /* BCClockGlowingSquareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCClockGlowingSquareView.h; sourceTree = "<group>"; };
 		388367D71672C06900DEC17E /* BCClockGlowingSquareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCClockGlowingSquareView.m; sourceTree = "<group>"; };
@@ -50,6 +77,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		384AF0341673584C0059C898 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				384AF063167361E80059C898 /* QuartzCore.framework in Frameworks */,
+				384AF03A1673584D0059C898 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		38E464B416714E2E00FB69D7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -63,10 +99,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		384AF03B1673584D0059C898 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				384AF03C1673584D0059C898 /* AppKit.framework */,
+				384AF03D1673584D0059C898 /* CoreData.framework */,
+				384AF03E1673584D0059C898 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		384AF03F1673584D0059C898 /* Binary Clock Mac */ = {
+			isa = PBXGroup;
+			children = (
+				384AF04B1673584D0059C898 /* BCAppDelegate.h */,
+				384AF04C1673584D0059C898 /* BCAppDelegate.m */,
+				384AF065167366160059C898 /* BCBorderlessWindow.h */,
+				384AF066167366160059C898 /* BCBorderlessWindow.m */,
+				384AF04E1673584D0059C898 /* MainMenu.xib */,
+				384AF0401673584D0059C898 /* Supporting Files */,
+			);
+			path = "Binary Clock Mac";
+			sourceTree = "<group>";
+		};
+		384AF0401673584D0059C898 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				384AF0411673584D0059C898 /* Binary Clock Mac-Info.plist */,
+				384AF0421673584D0059C898 /* InfoPlist.strings */,
+				384AF0451673584D0059C898 /* main.m */,
+				384AF0471673584D0059C898 /* Binary Clock Mac-Prefix.pch */,
+				384AF0481673584D0059C898 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		38E464AC16714E2E00FB69D7 = {
 			isa = PBXGroup;
 			children = (
+				384AF062167361E80059C898 /* QuartzCore.framework */,
 				38E464C116714E2E00FB69D7 /* Binary Clock */,
+				384AF03F1673584D0059C898 /* Binary Clock Mac */,
 				38E464BA16714E2E00FB69D7 /* Frameworks */,
 				38E464B816714E2E00FB69D7 /* Products */,
 			);
@@ -76,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				38E464B716714E2E00FB69D7 /* Binary Clock.app */,
+				384AF0371673584C0059C898 /* Binary Clock.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -86,6 +160,8 @@
 				38E464BB16714E2E00FB69D7 /* UIKit.framework */,
 				38E464BD16714E2E00FB69D7 /* Foundation.framework */,
 				38E464BF16714E2E00FB69D7 /* CoreGraphics.framework */,
+				384AF0391673584D0059C898 /* Cocoa.framework */,
+				384AF03B1673584D0059C898 /* Other Frameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -99,9 +175,9 @@
 				38E464D616714E2E00FB69D7 /* MainStoryboard_iPad.storyboard */,
 				38E464E116714E9000FB69D7 /* BCClockView.h */,
 				38E464E216714E9000FB69D7 /* BCClockView.m */,
-				38E464E416714EA700FB69D7 /* BCBinaryTime.h */,
 				388367D61672C06900DEC17E /* BCClockGlowingSquareView.h */,
 				388367D71672C06900DEC17E /* BCClockGlowingSquareView.m */,
+				38E464E416714EA700FB69D7 /* BCBinaryTime.h */,
 				38E464E516714EA700FB69D7 /* BCBinaryTime.m */,
 				38E464C216714E2E00FB69D7 /* Supporting Files */,
 			);
@@ -126,6 +202,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		384AF0361673584C0059C898 /* Binary Clock Mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 384AF0531673584D0059C898 /* Build configuration list for PBXNativeTarget "Binary Clock Mac" */;
+			buildPhases = (
+				384AF0331673584C0059C898 /* Sources */,
+				384AF0341673584C0059C898 /* Frameworks */,
+				384AF0351673584C0059C898 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Binary Clock Mac";
+			productName = "Binary Clock Mac";
+			productReference = 384AF0371673584C0059C898 /* Binary Clock.app */;
+			productType = "com.apple.product-type.application";
+		};
 		38E464B616714E2E00FB69D7 /* Binary Clock */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 38E464DE16714E2E00FB69D7 /* Build configuration list for PBXNativeTarget "Binary Clock" */;
@@ -166,11 +259,22 @@
 			projectRoot = "";
 			targets = (
 				38E464B616714E2E00FB69D7 /* Binary Clock */,
+				384AF0361673584C0059C898 /* Binary Clock Mac */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		384AF0351673584C0059C898 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				384AF0441673584D0059C898 /* InfoPlist.strings in Resources */,
+				384AF04A1673584D0059C898 /* Credits.rtf in Resources */,
+				384AF0501673584D0059C898 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		38E464B516714E2E00FB69D7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -188,6 +292,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		384AF0331673584C0059C898 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				384AF0461673584D0059C898 /* main.m in Sources */,
+				384AF04D1673584D0059C898 /* BCAppDelegate.m in Sources */,
+				384AF055167358E80059C898 /* BCBinaryTime.m in Sources */,
+				384AF056167358EE0059C898 /* BCClockView.m in Sources */,
+				384AF057167358F00059C898 /* BCClockGlowingSquareView.m in Sources */,
+				384AF067167366160059C898 /* BCBorderlessWindow.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		38E464B316714E2E00FB69D7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -203,6 +320,30 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		384AF0421673584D0059C898 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				384AF0431673584D0059C898 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		384AF0481673584D0059C898 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				384AF0491673584D0059C898 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		384AF04E1673584D0059C898 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				384AF04F1673584D0059C898 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
 		38E464C416714E2E00FB69D7 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -230,6 +371,50 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		384AF0511673584D0059C898 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Binary Clock Mac/Binary Clock Mac-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "Binary Clock Mac/Binary Clock Mac-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "Binary Clock";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		384AF0521673584D0059C898 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Binary Clock Mac/Binary Clock Mac-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "Binary Clock Mac/Binary Clock Mac-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "Binary Clock";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 		38E464DC16714E2E00FB69D7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -306,6 +491,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		384AF0531673584D0059C898 /* Build configuration list for PBXNativeTarget "Binary Clock Mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				384AF0511673584D0059C898 /* Debug */,
+				384AF0521673584D0059C898 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		38E464B116714E2E00FB69D7 /* Build configuration list for PBXProject "Binary Clock" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
