@@ -11,4 +11,7 @@
 
 @interface BCClockView : UIView
 
+@property (nonatomic, readwrite) BCBinaryTime *time;
+@property (readwrite) NSInteger length;
+
 @end

@@ -15,6 +15,9 @@
 
 - (id)initWithDate:(NSDate *)date; // designated. if date is nil, current date is used
 
-- (NSArray *)binaryValuesWithLength:(NSUInteger)length; // returns an array of NSNumber booleans, representing this binary time
+- (NSArray *)binaryValuesWithLength:(NSInteger)length; // returns an array of NSNumber booleans, representing this binary time
+
++ (NSTimeInterval)timeIntervalBetweenChangesAtPosition:(NSInteger)position;
+- (NSTimeInterval)timeIntervalToNextChangeAtPosition:(NSInteger)position;
 
 @end

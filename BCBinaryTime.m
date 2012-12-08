@@ -26,6 +26,54 @@
   return [[[BCBinaryTime class] alloc] initWithDate:nil];
 }
 
+
++ (NSTimeInterval)timeIntervalBetweenChangesAtPosition:(NSInteger)position;
+{
+  NSTimeInterval result = 86400; // seconds in one day
+  
+  for (int i = 0; i < position; i++) {
+    result /= 2;
+  }
+  
+  return result;
+}
+
+- (NSTimeInterval)timeIntervalToNextChangeAtPosition:(NSInteger)position
+{
+  NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+  
+  // init "begining" timestamp as midnight this morning
+  NSDate *midnightThisMorning = [NSDate date];
+  NSDateComponents *comps = [gregorian components:(NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit) fromDate:midnightThisMorning];
+  midnightThisMorning = [gregorian dateFromComponents:comps];
+  NSTimeInterval beginning = [midnightThisMorning timeIntervalSince1970];
+  
+  // init "end" timestamp as as midnight tonight
+  comps = [[NSDateComponents alloc] init];
+  [comps setDay:1];
+  NSDate *midnightTonight = [gregorian dateByAddingComponents:comps toDate:midnightThisMorning options:0];
+  NSTimeInterval end = midnightTonight.timeIntervalSince1970;
+  
+  // get a timestamp for now
+  NSTimeInterval now = self.date.timeIntervalSince1970;
+  
+  // check if "now" is closer to "begining" or "end", then cut the begining/end times in half and repeat up to the desired length
+  NSTimeInterval nextChange;
+  for (int i = 0; i < position; i++) {
+    if ((now - beginning) < (end - now)) {
+      nextChange = beginning + ((end - beginning) / 2);
+      
+      end = (end - ((end - beginning) / 2));
+    } else {
+      nextChange = end;
+      
+      beginning = (beginning + ((end - beginning) / 2));
+    }
+  }
+  
+  return nextChange - now;
+}
+
 - (id)init
 {
   return [self initWithDate:nil];
@@ -44,7 +92,7 @@
   return self;
 }
 
-- (NSArray *)binaryValuesWithLength:(NSUInteger)length
+- (NSArray *)binaryValuesWithLength:(NSInteger)length
 {
   NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
   

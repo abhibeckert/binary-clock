@@ -18,7 +18,6 @@
 		38E464D216714E2E00FB69D7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38E464D116714E2E00FB69D7 /* Default-568h@2x.png */; };
 		38E464D516714E2E00FB69D7 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38E464D316714E2E00FB69D7 /* MainStoryboard_iPhone.storyboard */; };
 		38E464D816714E2E00FB69D7 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38E464D616714E2E00FB69D7 /* MainStoryboard_iPad.storyboard */; };
-		38E464DB16714E2E00FB69D7 /* BCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E464DA16714E2E00FB69D7 /* BCViewController.m */; };
 		38E464E316714E9000FB69D7 /* BCClockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E464E216714E9000FB69D7 /* BCClockView.m */; };
 		38E464E616714EA700FB69D7 /* BCBinaryTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E464E516714EA700FB69D7 /* BCBinaryTime.m */; };
 /* End PBXBuildFile section */
@@ -39,8 +38,6 @@
 		38E464D116714E2E00FB69D7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		38E464D416714E2E00FB69D7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		38E464D716714E2E00FB69D7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		38E464D916714E2E00FB69D7 /* BCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCViewController.h; sourceTree = "<group>"; };
-		38E464DA16714E2E00FB69D7 /* BCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCViewController.m; sourceTree = "<group>"; };
 		38E464E116714E9000FB69D7 /* BCClockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCClockView.h; sourceTree = "<group>"; };
 		38E464E216714E9000FB69D7 /* BCClockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCClockView.m; sourceTree = "<group>"; };
 		38E464E416714EA700FB69D7 /* BCBinaryTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BCBinaryTime.h; path = ../BCBinaryTime.h; sourceTree = "<group>"; };
@@ -95,8 +92,6 @@
 				38E464CB16714E2E00FB69D7 /* BCAppDelegate.m */,
 				38E464D316714E2E00FB69D7 /* MainStoryboard_iPhone.storyboard */,
 				38E464D616714E2E00FB69D7 /* MainStoryboard_iPad.storyboard */,
-				38E464D916714E2E00FB69D7 /* BCViewController.h */,
-				38E464DA16714E2E00FB69D7 /* BCViewController.m */,
 				38E464E116714E9000FB69D7 /* BCClockView.h */,
 				38E464E216714E9000FB69D7 /* BCClockView.m */,
 				38E464E416714EA700FB69D7 /* BCBinaryTime.h */,
@@ -190,7 +185,6 @@
 			files = (
 				38E464C816714E2E00FB69D7 /* main.m in Sources */,
 				38E464CC16714E2E00FB69D7 /* BCAppDelegate.m in Sources */,
-				38E464DB16714E2E00FB69D7 /* BCViewController.m in Sources */,
 				38E464E316714E9000FB69D7 /* BCClockView.m in Sources */,
 				38E464E616714EA700FB69D7 /* BCBinaryTime.m in Sources */,
 			);
