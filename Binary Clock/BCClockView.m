@@ -118,15 +118,17 @@
 {
   NSInteger count = self.subviews.count;
   
-#if TARGET_OS_IPHONE
+#if TARGET_OS_IPHONE // assume retina; round to nearest half-point and aim for first/last block equal distance from screen edge
   CGFloat minX = 0;
   CGFloat maxX = self.frame.size.width;
-#elif TARGET_OS_MAC
-  CGFloat minX = (self.frame.size.width / count) / 1.5;
-  CGFloat maxX = self.frame.size.width - ((self.frame.size.width / count) / 1.5);
-#endif
   CGFloat blockWidth = (maxX - minX) / count;
   CGFloat shadowOffset = blockWidth / 1.1;
+#elif TARGET_OS_MAC // assume non retina; floor/ciel to nearest point
+  CGFloat minX = (self.frame.size.width / count) / 1.5;
+  CGFloat maxX = self.frame.size.width - ((self.frame.size.width / count) / 1.5);
+  CGFloat blockWidth = floorf((maxX - minX) / count);
+  CGFloat shadowOffset = floorf(blockWidth / 1.1);
+#endif
   
   CGFloat blockHeight = blockWidth;
   CGFloat blockY = (self.frame.size.height / 2) - (blockHeight / 2);
@@ -139,12 +141,12 @@
 #endif
     CGRect frame = CGRectMake(minX + (subviewIndex * blockWidth), blockY, blockWidth, blockHeight);
     
-#if TARGET_OS_IPHONE // assume retina
+#if TARGET_OS_IPHONE // assume retina; round to nearest half-point and aim for first/last block equal distance from screen edge
     frame.origin.x = floorf(2.0f * (frame.origin.x - shadowOffset)) / 2.0f;
     frame.origin.y = floorf(2.0f * (frame.origin.y - shadowOffset)) / 2.0f;
     frame.size.width = ceilf(2.0f * (frame.size.width + shadowOffset * 2)) / 2.0f;
     frame.size.height = ceilf(2.0f * (frame.size.height + shadowOffset * 2)) / 2.0f;
-#elif TARGET_OS_MAC // assume non retina
+#elif TARGET_OS_MAC // assume non retina; floor/ciel to nearest point
     frame.origin.x = floorf(frame.origin.x - shadowOffset);
     frame.origin.y = floorf(frame.origin.y - shadowOffset);
     frame.size.width = ceilf(frame.size.width + shadowOffset * 2);
@@ -174,7 +176,7 @@
     CGFloat newAlpha = ((NSNumber *)[values objectAtIndex:subviewIndex]).boolValue ? 1.0 : 0.15;
 #elif TARGET_OS_MAC
   for (NSView *subview in self.subviews) {
-    CGFloat newAlpha = ((NSNumber *)[values objectAtIndex:subviewIndex]).boolValue ? 1.0 : 0.35;
+    CGFloat newAlpha = ((NSNumber *)[values objectAtIndex:subviewIndex]).boolValue ? 1.0 : 0.3;
 #endif
     
 #if TARGET_OS_IPHONE

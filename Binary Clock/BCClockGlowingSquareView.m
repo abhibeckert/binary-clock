@@ -37,17 +37,17 @@
 - (void)drawRect:(CGRect)rect
 {
 #if TARGET_OS_IPHONE
-  UIColor *strokeColor = [UIColor colorWithRed:0.885 green:0.95 blue:1 alpha:1];
+  UIColor *strokeColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1]; // on black background, so light stroke
   UIColor *fillColor = [UIColor colorWithRed:0.75 green:0.9 blue:1 alpha:0.85];
-  UIColor *shadowColor = [UIColor colorWithRed:0.75 green:0.9 blue:1 alpha:0.6];
+  UIColor *shadowColor = [UIColor colorWithRed:0.75 green:0.9 blue:1 alpha:0.75];
   
   CGFloat shadowSize = ceilf(2.0f * (self.frame.size.width / 3)) / 2.0f; // assume retina
 #elif TARGET_OS_MAC
-  NSColor *strokeColor = [NSColor colorWithCalibratedRed:1 green:1 blue:1 alpha:1];
+  NSColor *strokeColor = [NSColor colorWithCalibratedRed:0 green:0 blue:0 alpha:0.3]; // transparent background, so dark stroke to be inverse of fill colour
   NSColor *fillColor = [NSColor colorWithCalibratedRed:0.75 green:0.9 blue:1 alpha:1];
   NSColor *shadowColor = [NSColor colorWithCalibratedRed:0.75 green:0.9 blue:1 alpha:0.8];
   
-  CGFloat shadowSize = ceilf(self.frame.size.width / 3) + 0.5; // assume non-retina
+  CGFloat shadowSize = ceilf(self.frame.size.width / 3) + 1; // assume non-retina
 #endif
 
   CGRect squareRect = CGRectMake(shadowSize, shadowSize, self.frame.size.width - (shadowSize * 2), self.frame.size.width - shadowSize * 2);
@@ -60,7 +60,8 @@
 
   CGContextSaveGState(context);
   
-  CGContextSetLineWidth(context, 1);
+  CGContextSetLineJoin(context, kCGLineJoinMiter);
+  CGContextSetLineWidth(context, 2);
   CGContextSetStrokeColorWithColor(context, strokeColor.CGColor);
   CGContextSetFillColorWithColor(context, fillColor.CGColor);
   CGContextSetShadowWithColor(context, CGSizeMake(0, 0), shadowSize, shadowColor.CGColor);
