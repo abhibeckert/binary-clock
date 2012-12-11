@@ -119,13 +119,15 @@
   NSInteger count = self.subviews.count;
   
 #if TARGET_OS_IPHONE // assume retina; round to nearest half-point and aim for first/last block equal distance from screen edge
+  CGFloat fourBitExtraMargin = (self.frame.size.width / count) / 9;
   CGFloat minX = 0;
-  CGFloat maxX = self.frame.size.width;
+  CGFloat maxX = self.frame.size.width - ((floorf(count / 4) - 1) * fourBitExtraMargin);
   CGFloat blockWidth = (maxX - minX) / count;
   CGFloat shadowOffset = blockWidth / 1.1;
 #elif TARGET_OS_MAC // assume non retina; floor/ciel to nearest point
+  CGFloat fourBitExtraMargin = (self.frame.size.width / count) / 9;
   CGFloat minX = (self.frame.size.width / count) / 1.5;
-  CGFloat maxX = self.frame.size.width - ((self.frame.size.width / count) / 1.5);
+  CGFloat maxX = (self.frame.size.width - ((self.frame.size.width / count) / 1.5)) - ((floorf(count / 4) - 1) * fourBitExtraMargin);
   CGFloat blockWidth = floorf((maxX - minX) / count);
   CGFloat shadowOffset = floorf(blockWidth / 1.1);
 #endif
@@ -140,6 +142,7 @@
   for (NSView *subview in self.subviews) {
 #endif
     CGRect frame = CGRectMake(minX + (subviewIndex * blockWidth), blockY, blockWidth, blockHeight);
+    frame.origin.x += floorf(subviewIndex / 4) * fourBitExtraMargin;
     
 #if TARGET_OS_IPHONE // assume retina; round to nearest half-point and aim for first/last block equal distance from screen edge
     frame.origin.x = floorf(2.0f * (frame.origin.x - shadowOffset)) / 2.0f;
