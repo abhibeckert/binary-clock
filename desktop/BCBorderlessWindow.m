@@ -28,7 +28,7 @@
   [self setOpaque:NO];
   // [self setBackgroundColor:[NSColor clearColor]]; // if compositing is enabled, this should set the background to clear. but compositing is buggy with my gfx card, so I set it to white instead (which is the colour of my desktop picture). TODO: add a user default for this.
   [self setBackgroundColor:[NSColor whiteColor]];
-  [self setLevel:NSDesktopWindowLevel - 10]; // this should hide the window from the task bar and alt-tab on linux, but it doesn't seem to work
+  [self setLevel:NSDesktopWindowLevel - 10];
 }
 
 - (BOOL)canBecomeKeyWindow
