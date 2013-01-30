@@ -7,12 +7,33 @@
 //
 
 #import "BCAppDelegate.h"
+#import "BCBinaryTime.h"
 
 @implementation BCAppDelegate
 
+- (NSWindow *)window
+{
+  return _window;
+}
+
+- (void)setWindow:(NSWindow *)window
+{
+  [_window autorelease];
+  _window = [window retain];
+}
+
+- (void)dealloc
+{
+  [_window release], _window = nil;
+  [super dealloc];
+}
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-  [[NSUserDefaults standardUserDefaults] registerDefaults:@{@"BCClockBlockCount": @"8"}];
+  NSMutableDictionary *defaults = [NSMutableDictionary dictionary];
+  [defaults setObject:@"8" forKey:@"BCClockBlockCount"];
+  
+  [[NSUserDefaults standardUserDefaults] registerDefaults:defaults];
   [[NSUserDefaults standardUserDefaults] synchronize];
 }
 

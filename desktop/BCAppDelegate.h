@@ -8,8 +8,12 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface BCAppDelegate : NSObject <NSApplicationDelegate>
+@interface BCAppDelegate : NSObject
+{
+  NSWindow *_window;
+}
 
-@property (assign) IBOutlet NSWindow *window;
+- (NSWindow *)window;
+- (void)setWindow:(NSWindow *)window;
 
 @end

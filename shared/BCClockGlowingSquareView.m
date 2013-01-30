@@ -10,66 +10,90 @@
 
 @implementation BCClockGlowingSquareView
 
-- (id)initWithFrame:(CGRect)frame
+- (float)alphaValue
+{
+  return _alphaValue;
+}
+
+- (void)setAlphaValue:(float)alphaValue
+{
+  [self setNeedsDisplay:YES];
+  
+  _alphaValue = alphaValue;
+}
+
+
+- (id)initWithFrame:(NSRect)frame
 {
   if (!(self = [super initWithFrame:frame]))
     return nil;
   
-#if TARGET_OS_IPHONE
-  self.opaque = NO;
-#elif TARGET_OS_MAC
-  // define isOpaque method instead
-#endif
+// #if TARGET_OS_IPHONE
+//   self.opaque = NO;
+// #elif TARGET_OS_MAC
+//   // define isOpaque method instead
+// #endif
   
   return self;
 }
 
-#if TARGET_OS_IPHONE
-// initWithFrame sets self.opaque instead
-#elif TARGET_OS_MAC
+// #if TARGET_OS_IPHONE
+// // initWithFrame sets self.opaque instead
+// #elif TARGET_OS_MAC
 - (BOOL)isOpaque {
   return NO;
 }
-#endif
+// #endif
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+- (void)drawRect:(NSRect)rect
 {
-#if TARGET_OS_IPHONE
-  UIColor *strokeColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1]; // on black background, so light stroke
-  UIColor *fillColor = [UIColor colorWithRed:0.75 green:0.9 blue:1 alpha:0.85];
-  UIColor *shadowColor = [UIColor colorWithRed:0.75 green:0.9 blue:1 alpha:0.75];
+// #if TARGET_OS_IPHONE
+//   UIColor *strokeColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1]; // on black background, so light stroke
+//   UIColor *fillColor = [UIColor colorWithRed:0.75 green:0.9 blue:1 alpha:0.85];
+//   UIColor *shadowColor = [UIColor colorWithRed:0.75 green:0.9 blue:1 alpha:0.75];
   
-  CGFloat shadowSize = ceilf(2.0f * (self.frame.size.width / 3)) / 2.0f; // assume retina
-#elif TARGET_OS_MAC
-  NSColor *strokeColor = [NSColor colorWithCalibratedRed:0 green:0 blue:0 alpha:0.3]; // transparent background, so dark stroke to be inverse of fill colour
-  NSColor *fillColor = [NSColor colorWithCalibratedRed:0.75 green:0.9 blue:1 alpha:1];
-  NSColor *shadowColor = [NSColor colorWithCalibratedRed:0.75 green:0.9 blue:1 alpha:0.8];
+//   CGFloat shadowSize = ceilf(2.0f * (self.frame.size.width / 3)) / 2.0f; // assume retina
+// #elif TARGET_OS_MAC
+  NSColor *strokeColor = [NSColor colorWithCalibratedRed:0 green:0 blue:0 alpha:self.alphaValue + 0.1]; // transparent background, so dark stroke to be inverse of fill colour
+  NSColor *fillColor = [NSColor colorWithCalibratedRed:0.0 green:0.1 blue:0.2 alpha:self.alphaValue];
+  // NSColor *shadowColor = [NSColor colorWithCalibratedRed:0.75 green:0.9 blue:1 alpha:0.8];
   
   CGFloat shadowSize = ceilf(self.frame.size.width / 3) + 1; // assume non-retina
-#endif
+// #endif
 
-  CGRect squareRect = CGRectMake(shadowSize, shadowSize, self.frame.size.width - (shadowSize * 2), self.frame.size.width - shadowSize * 2);
+  NSRect squareRect = NSMakeRect(shadowSize, shadowSize, self.frame.size.width - (shadowSize * 2), self.frame.size.width - shadowSize * 2);
 
-#if TARGET_OS_IPHONE
-  CGContextRef context = UIGraphicsGetCurrentContext();
-#elif TARGET_OS_MAC
-  CGContextRef context = [[NSGraphicsContext currentContext] graphicsPort];
-#endif
+// #if TARGET_OS_IPHONE
+//   CGContextRef context = UIGraphicsGetCurrentContext();
+// #elif TARGET_OS_MAC
+  // CGContextRef context = [[NSGraphicsContext currentContext] graphicsPort];
+// #endif
 
-  CGContextSaveGState(context);
+  // CGContextSaveGState(context);
   
-  CGContextSetLineJoin(context, kCGLineJoinMiter);
-  CGContextSetLineWidth(context, 2);
-  CGContextSetStrokeColorWithColor(context, strokeColor.CGColor);
-  CGContextSetFillColorWithColor(context, fillColor.CGColor);
-  CGContextSetShadowWithColor(context, CGSizeMake(0, 0), shadowSize, shadowColor.CGColor);
+  // CGContextSetLineJoin(context, kCGLineJoinMiter);
+  // CGContextSetLineWidth(context, 2);
+  // CGContextSetStrokeColorWithColor(context, strokeColor.CGColor);
+  // CGContextSetFillColorWithColor(context, fillColor.CGColor);
+  // CGContextSetShadowWithColor(context, CGSizeMake(0, 0), shadowSize, shadowColor.CGColor);
   
-  CGContextStrokeRect(context, squareRect);
-  CGContextFillRect(context, squareRect);
+  // CGContextStrokeRect(context, squareRect);
+  // CGContextFillRect(context, squareRect);
   
-  CGContextRestoreGState(context);
+  // CGContextRestoreGState(context);
+  
+  NSBezierPath *path = [NSBezierPath bezierPathWithRect:squareRect];
+  path.lineJoinStyle = NSMiterLineJoinStyle;
+  path.lineWidth = 1;
+  
+  [strokeColor set];
+  [path stroke];
+  
+  [fillColor set];
+  [path fill];
+
 }
 
 

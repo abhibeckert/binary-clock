@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface BCBinaryTime : NSObject
+{
+  NSDate *_date;
+}
 
 + (BCBinaryTime *)binaryTimeWithDate:(NSDate *)date;
 + (BCBinaryTime *)binaryTime;

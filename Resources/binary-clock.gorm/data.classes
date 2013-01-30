@@ -21,7 +21,7 @@
 	);
 	Outlets = (
 	);
-	Super = NSWindow;
+	Super = NSPanel;
     };
     BCClockView = {
 	Actions = (
