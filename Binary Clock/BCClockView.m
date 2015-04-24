@@ -167,7 +167,8 @@
   NSInteger count = self.subviews.count;
   NSArray *values = [time binaryValuesWithLength:count];
   
-  NSTimeInterval animationDuration = 5;
+//  NSTimeInterval animationDuration = 5;
+  NSTimeInterval animationDuration = 0;
   NSTimeInterval maxAnimationDuration = [time timeIntervalToNextChangeAtPosition:count];
   if (animationDuration > maxAnimationDuration)
     animationDuration = maxAnimationDuration;
